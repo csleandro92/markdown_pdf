@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown → PDF</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Markdown → PDF</h1>
+        <p>Leitor e conversor de documentos Markdown</p>
+    </header>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <h2>Configurações</h2>
+
+            <div class="field">
+                <label for="file">
+                    Arquivo Markdown
+                </label>
+
+                <input type="file" id="file" accept=".md,.markdown,text/markdown">
+            </div>
+
+            <div class="field">
+                <label for="paper">
+                    Tamanho da página
+                </label>
+
+                <select id="paper">
+                    <option value="a4">A4</option>
+                    <option value="letter">Carta</option>
+                    <option value="a5">A5</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="margin">
+                    Margem (mm)
+                </label>
+
+                <input type="number" id="margin" value="20" min="0" max="50">
+            </div>
+
+            <button id="btnPdf">
+                📄 Gerar PDF
+            </button>
+
+            <button id="btnClear">
+                🗑 Limpar
+            </button>
+
+            <div class="status" id="status">
+                Nenhum arquivo carregado.
+            </div>
+
+        </aside>
+
+        <main class="workspace">
+
+            <h2 class="preview-title">
+                Pré-visualização
+            </h2>
+
+            <section id="document">
+
+                <div class="empty">
+                    <h2>Markdown → PDF</h2>
+
+                    <p>
+                        Selecione um arquivo Markdown para visualizar
+                        o documento.
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+    <script src="./js/marked.min.js"></script>
+    <script src="./js/html2pdf.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
