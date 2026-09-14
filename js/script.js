@@ -11,11 +11,12 @@ const btnClear = document.getElementById("btnClear");
 
 
 /*
- * Atualiza a pré-visualização conforme tamanho e orientação.
+ * Atualiza a pré-visualização conforme tamanho, orientação e margem.
  */
 function updatePreviewPage() {
   const paper = getPaperSize();
   const orientation = orientationSelect.value;
+  const margin = Math.max(0, Number(marginInput.value) || 0);
 
   const sizes = {
     a4: { width: "210mm", height: "297mm" },
@@ -30,6 +31,8 @@ function updatePreviewPage() {
 
   documentElement.style.minHeight =
     orientation === "landscape" ? size.width : size.height;
+
+  documentElement.style.padding = `${margin}mm`;
 }
 
 
@@ -65,6 +68,8 @@ fileInput.addEventListener("change", async function () {
  */
 paperSelect.addEventListener("change", updatePreviewPage);
 orientationSelect.addEventListener("change", updatePreviewPage);
+marginInput.addEventListener("input", updatePreviewPage);
+marginInput.addEventListener("change", updatePreviewPage);
 
 
 /*
@@ -120,7 +125,7 @@ btnPdf.addEventListener("click", async function () {
     return;
   }
 
-  const margin = Number(marginInput.value) || 20;
+  const margin = Math.max(0, Number(marginInput.value) || 0);
   const paper = getPaperSize();
   const orientation = orientationSelect.value;
 
