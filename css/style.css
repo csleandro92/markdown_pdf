@@ -110,22 +110,18 @@ button {
   margin-top: 0;
 }
 
-/*
-         * Área que representa a página do PDF.
-         */
+/* Área que representa a página do PDF. */
 #document {
   background: white;
   width: 210mm;
   min-height: 297mm;
   margin: auto;
   padding: 20mm;
-
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-
   color: #000;
   font-family: Arial, Helvetica, sans-serif;
-
   line-height: 1.6;
+  transition: width 0.2s ease, min-height 0.2s ease;
 }
 
 #document h1 {
@@ -240,9 +236,7 @@ button {
   }
 }
 
-/*
-         * Regras utilizadas durante a impressão/PDF.
-         */
+/* Regras utilizadas durante a impressão/PDF. */
 @media print {
   body {
     background: white;
@@ -263,8 +257,8 @@ button {
   }
 
   #document {
-    width: 210mm;
-    min-height: 297mm;
+    width: auto;
+    min-height: auto;
     margin: 0;
     box-shadow: none;
   }
